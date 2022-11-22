@@ -36,7 +36,7 @@ UPLOAD_FOLDER = "/home/input"
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 device="cuda"
-model_path="--model-path yolov7-p6-bonefracture.onnx"
+model_path="yolov7-p6-bonefracture.onnx"
 providers = ['CUDAExecutionProvider'] if device=="cuda" else ['CPUExecutionProvider']
 session = onnxruntime.InferenceSession(model_path, providers=providers)
 input_name = session.get_inputs()[0].name
