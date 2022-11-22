@@ -109,6 +109,10 @@ def post_process(img_file, output, score_threshold=0.3, format="xywh"):
     return img, label_txt
 
 
+@app.route('/', methods=['GET'])
+def upload_form2():
+    return render_template('upload.html')
+
 @app.route('/wrist', methods=['GET'])
 def upload_form():
     return render_template('upload.html')
@@ -129,10 +133,10 @@ def Prediction():
             img = load_img(inputDir +"/" +filename)
             out = session.run([output_name], {input_name: img})
 
-            output = output[0][:, :6]
+            output = out[0][:, :6]
             out_img, out_txt = post_process(inputDir +"/" +filename, out, 0.3, "xywh")
             cv2.imwrite((inputDir +"/" + "pred.jpg"), out_img[..., ::-1])
 
             return send_file(inputDir +"/" + "pred.jpg", mimetype="image/jpg")
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=6000,debug=False,threaded=True)
+    app.run(host='0.0.0.0',port=8000,debug=False,threaded=True)
