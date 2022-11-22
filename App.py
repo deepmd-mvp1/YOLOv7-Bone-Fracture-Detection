@@ -133,7 +133,7 @@ def Prediction():
             img = load_img(inputDir +"/" +filename)
             out = session.run([output_name], {input_name: img})
 
-            output = out[0][:, :6]
+            out = out[0][:, :6]
             out_img, out_txt = post_process(inputDir +"/" +filename, out, 0.3, "xywh")
             cv2.imwrite((inputDir +"/" + "pred.jpg"), out_img[..., ::-1])
 
