@@ -38,7 +38,7 @@ COPY yolov7_data.yaml /opt
 RUN mkdir results
 RUN mkdir templates
 COPY templates /opt/templates/
-COPY results /opt/results/
+
 RUN cd /opt
 RUN mkdir output
 
