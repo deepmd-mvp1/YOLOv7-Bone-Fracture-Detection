@@ -69,7 +69,7 @@ def load_img(img_file, img_mean=0, img_scale=1/255):
     return img
 
 
-def post_process(img_file, output, score_threshold=0.3, format="xywh"):
+def post_process(img_file, output, score_threshold=0.5, format="xywh"):
     """
     Draw bounding boxes on the input image. Dump boxes in a txt file.
     """
@@ -79,7 +79,7 @@ def post_process(img_file, output, score_threshold=0.3, format="xywh"):
     id2names = {
         0: "boneanomaly", 1: "bonelesion", 2: "foreignbody", 
         3: "fracture", 4: "metal", 5: "periostealreaction", 
-        6: "pronatorsign", 7:"softtissue", 8:"text"
+        6: "pronatorsign", 7:"softtissue", 8:"Unknown"
     }
 
     img = cv2.imread(img_file)

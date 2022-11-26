@@ -44,7 +44,7 @@ def model_inference(model_path, image_np, device="cpu"):
     return output[0][:, :6]
 
 
-def post_process(img_file, output, score_threshold=0.3, format="xywh"):
+def post_process(img_file, output, score_threshold=0.5, format="xywh"):
     """
     Draw bounding boxes on the input image. Dump boxes in a txt file.
     """
