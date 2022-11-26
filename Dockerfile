@@ -30,7 +30,7 @@ RUN git clone https://github.com/facebookresearch/detectron2.git && \
     pip -v install --no-cache-dir . && \
     cd /opt/detectron2/projects/TensorMask && \
     pip install --no-cache-dir .
-RUN pip install flask_cors requests
+RUN pip install flask_cors requests onnx onnxruntime nvidia-pyindex
 COPY *.py /opt/
 COPY yolov7-p6-bonefracture.onnx /opt
 COPY yolov7_cfg.yaml /opt
